@@ -194,7 +194,7 @@ class GnuPlot {
         if ($this->timeFormat) {
             $this->sendCommand('set xdata time');
             $this->sendCommand('set timefmt "'.$this->timeFormat.'"');
-            $this->sendCommand('set xtics rotate by 45 offset -6,-3');
+            //$this->sendCommand('set xtics rotate by 45 offset -6,-3');
             if ($this->timeFormatString) {
                 $this->sendCommand('set format x "'.$this->timeFormatString.'"');
             }
@@ -415,7 +415,7 @@ class GnuPlot {
     /**
      * Sends a command to the gnuplot process
      */
-    protected function sendCommand($command)
+    public function sendCommand($command)
     {
         $command .= "\n";
         fwrite($this->stdin, $command);
